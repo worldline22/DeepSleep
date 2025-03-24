@@ -1,0 +1,7 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/smart/Desktop/code/DeepSleep/wjq/project_1/project_1.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+C:/Users/smart/Desktop/code/DeepSleep/wjq/project_1/project_1.srcs/sources_1/imports/wjq/RISCVCore.sv,1742818791,systemVerilog,,C:/Users/smart/Desktop/code/DeepSleep/wjq/project_1/project_1.srcs/sources_1/imports/wjq/RISCVCore_tb.sv,,ALU;Bubble;ControlUnit;DataMEM;Extend;Forwarding;InsMEM;PC;RISCVCore;RegisterFile,,,,,,,,
+C:/Users/smart/Desktop/code/DeepSleep/wjq/project_1/project_1.srcs/sources_1/imports/wjq/RISCVCore_tb.sv,1742817247,systemVerilog,,,,RISCVCore_tb,,,,,,,,

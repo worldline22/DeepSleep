@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="RISCVCore_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="RISCVCore_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1406000000000000001fs"></ZoomEndTime>
+      <Cursor1Time time="600000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="304"></NameColumnWidth>
+      <ValueColumnWidth column_width="377"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="24" />
+   <wvobject fp_name="/RISCVCore_tb/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/alu/operand1" type="array">
+      <obj_property name="ElementShortName">operand1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/alu/operand2" type="array">
+      <obj_property name="ElementShortName">operand2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/alu/AluOp" type="array">
+      <obj_property name="ElementShortName">AluOp[2:0]</obj_property>
+      <obj_property name="ObjectShortName">AluOp[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/alu/result" type="array">
+      <obj_property name="ElementShortName">result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/alu1_src" type="logic">
+      <obj_property name="ElementShortName">alu1_src</obj_property>
+      <obj_property name="ObjectShortName">alu1_src</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/alu2_src" type="logic">
+      <obj_property name="ElementShortName">alu2_src</obj_property>
+      <obj_property name="ObjectShortName">alu2_src</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/imm" type="array">
+      <obj_property name="ElementShortName">imm[24:0]</obj_property>
+      <obj_property name="ObjectShortName">imm[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/read_data1" type="array">
+      <obj_property name="ElementShortName">read_data1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/read_data2" type="array">
+      <obj_property name="ElementShortName">read_data2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/read_data1_forwarded" type="array">
+      <obj_property name="ElementShortName">read_data1_forwarded[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data1_forwarded[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/read_data2_forwarded" type="array">
+      <obj_property name="ElementShortName">read_data2_forwarded[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data2_forwarded[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/current_pc" type="array">
+      <obj_property name="ElementShortName">current_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">current_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/ins_mem/instr" type="array">
+      <obj_property name="ElementShortName">instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/extend/extend" type="array">
+      <obj_property name="ElementShortName">extend[31:0]</obj_property>
+      <obj_property name="ObjectShortName">extend[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/extend/imm" type="array">
+      <obj_property name="ElementShortName">imm[24:0]</obj_property>
+      <obj_property name="ObjectShortName">imm[24:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/extend/ExtSel" type="array">
+      <obj_property name="ElementShortName">ExtSel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ExtSel[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/extend/Sign" type="logic">
+      <obj_property name="ElementShortName">Sign</obj_property>
+      <obj_property name="ObjectShortName">Sign</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/reg_file/rs1" type="array">
+      <obj_property name="ElementShortName">rs1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/reg_file/rs2" type="array">
+      <obj_property name="ElementShortName">rs2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/reg_file/regFile[1]" type="array">
+      <obj_property name="ElementShortName">[1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/reg_file/regFile[2]" type="array">
+      <obj_property name="ElementShortName">[2][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RISCVCore_tb/uut/reg_file/regFile[3]" type="array">
+      <obj_property name="ElementShortName">[3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+   </wvobject>
+</wave_config>

@@ -83,7 +83,7 @@ module RISCVCore(
         .instr()  // 可省略instr输出
     );
 
-    // 控制单元实例化（已修正RegWr）
+    // 控制单元实例化
     ControlUnit control(
         .CLK(CLK),
         .op(op),
@@ -311,21 +311,14 @@ module InsMEM(    //指令存储器
     //这里存储器大小可调
     // 加载数据到存储器rom（仿真检测时可用）
     initial begin
-        {rom[3],rom[2],rom[1],rom[0]}     = 32'b00000000010000000000000010010011;
-        {rom[7],rom[6],rom[5],rom[4]}     = 32'b00000000000000001000000100110011;
-        {rom[11],rom[10],rom[9],rom[8]}   = 32'b00000000001000001010000100100011;
-        {rom[15],rom[14],rom[13],rom[12]} = 32'b00000000001000001010000110000011;
-        {rom[19],rom[18],rom[17],rom[16]} = 32'b00000000001000011000001000110011;
-        {rom[23],rom[22],rom[21],rom[20]} = 32'b00000000100000000000001010010011;
-        {rom[27],rom[26],rom[25],rom[24]} = 32'b01000000000100101000001100110011;
-        {rom[31],rom[30],rom[29],rom[28]} = 32'b00000000000000000000000001100011;
-
-        op = 7'b0000000;
-        funct3 = 3'b000;
-        funct7 = 7'b0000000;
-        rs1 = 5'b00000;
-        rs2 = 5'b00000;
-        imm = 20'b00000000000000000000;
+        {rom[3],rom[2],rom[1],rom[0]}     = 32'b00000000010000000000000010010011;   //ADDI x1, x0; 将零寄存器(x0)的值 +4 存入x1 
+        {rom[7],rom[6],rom[5],rom[4]}     = 32'b00000000000000001000000100110011;   //ADD x3, x0, x1; 将x0与x1相加结果存入x3 
+        {rom[11],rom[10],rom[9],rom[8]}   = 32'b00000000001000001010000100100011;   //SW x10, 4(x1); 将x10的值存入内存地址 x1 +4 =8
+        {rom[15],rom[14],rom[13],rom[12]} = 32'b00000000001000001010000110000011;   //LW x1, 4(x1); 从内存地址 x1 +4 =8 加载数据到x1 → x1 = MEM[8]
+        {rom[19],rom[18],rom[17],rom[16]} = 32'b00000000001000011000001000110011;   //ADD x5, x2, x17 ; 将x2与x17相加结果存入x5
+        {rom[23],rom[22],rom[21],rom[20]} = 32'b00000000100000000000001010010011;   //ADDI x2, x0, 8; 将零寄存器(x0)的值 +8 存入x2
+        {rom[27],rom[26],rom[25],rom[24]} = 32'b01000000000100101000001100110011;   //SUB x6, x1, x4; 将x1与x4相减结果存入x6
+        {rom[31],rom[30],rom[29],rom[28]} = 32'b00000000000000000000000001100011;   //BEQ x0, x0, 12; 若x0与x0相等则跳转到PC+12
     end
 
     //小端模式,下降沿写入指令(应该是为了和controlunit合在一拍完成（即下降沿切分好指令，然后上升沿完成全部译码工作)
@@ -340,16 +333,14 @@ module InsMEM(    //指令存储器
         end 
     end
     //切割指令
-    always_comb   //组合逻辑（可参考instruction_split.png)
-    begin
-        op = instr[6:0];
-        rs1 = instr[19:15];
-        rs2 = instr[24:20];
-        rd = instr[11:7];
-        funct3 = instr[14:12];
-        funct7 = instr[31:26];
-        imm = instr[31:7];  //这里是没有被处理过的数段(其中可能只有一部分代表立即数)
-    end
+    //组合逻辑（可参考instruction_split.png)
+    assign op = instr[6:0];
+    assign rs1 = instr[19:15];
+    assign rs2 = instr[24:20];
+    assign rd = instr[11:7];
+    assign funct3 = instr[14:12];
+    assign funct7 = instr[31:25];
+    assign imm = instr[31:7];  //这里是没有被处理过的数段(其中可能只有一部分代表立即数)
     //R型指令：寄存器类型指令，用于在寄存器之间执行算术、逻辑和比较运算。这些指令使用三个寄存器参数。
     //I型指令：立即数类型指令，用于在寄存器和立即数（常数）之间执行算术、逻辑、移位和分支等操作。这些指令使用两个寄存器参数和一个立即数参数。
     //S型指令：存储类型指令，用于将寄存器中的数据存储到存储器中。这些指令使用两个寄存器参数和一个偏移量参数。
@@ -499,7 +490,8 @@ module ControlUnit(
         output reg Sign,        //立即数符号扩展信号
         output reg[1:0] Digit,  //读写位数
         output reg DataWr,      //存储器写使能
-        output reg immres       //rd是否选择imm直接作为数据
+        output reg immres,       //rd是否选择imm直接作为数据
+        output reg RegWr
     );
     
     always @(*) begin
@@ -520,6 +512,7 @@ module ControlUnit(
                 Alu1Src = 0;    // rs1
                 Alu2Src = 0;    // rs2
                 RegDst = 2'b00; // ALU结果
+                RegWr = 1;  // 需要写回寄存器
                 case (funct3)
                     3'b000: // ADD/SUB
                         AluOp = (funct7[5]) ? 3'b001 : 3'b000;
@@ -546,6 +539,7 @@ module ControlUnit(
                 Alu2Src = 1;    // 立即数
                 RegDst = 2'b00; // ALU结果
                 ExtSel = 3'b000; // I型
+                RegWr = 1;
                 case (funct3)
                     3'b000: begin // ADDI
                         AluOp = 3'b000;
@@ -589,6 +583,7 @@ module ControlUnit(
                 RegDst = 2'b01; // 存储器数据
                 ExtSel = 3'b000; // I型
                 Sign = 1;       // 符号扩展
+                RegWr = 1;  // 需要写回寄存器
                 case (funct3)
                     3'b000: Digit = 2'b00; // LB
                     3'b001: Digit = 2'b01; // LH
@@ -605,6 +600,7 @@ module ControlUnit(
                 ExtSel = 3'b001; // S型
                 Sign = 1;       // 符号扩展
                 DataWr = 1;     // 写使能
+                RegWr = 0;  
                 case (funct3)
                     3'b000: Digit = 2'b00; // SB
                     3'b001: Digit = 2'b01; // SH
@@ -618,6 +614,7 @@ module ControlUnit(
                 Alu2Src = 0;    // rs2
                 ExtSel = 3'b010; // B型
                 Sign = 1;       // 符号扩展
+                RegWr = 0;  
             end
 
             // LUI指令
@@ -625,6 +622,7 @@ module ControlUnit(
                 RegDst = 2'b00; // 结果来自立即数
                 ExtSel = 3'b011; // U型
                 immres = 1;     // 立即数直写
+                RegWr = 1;  // 需要写回寄存器
             end
 
             // JAL指令
@@ -632,6 +630,7 @@ module ControlUnit(
                 RegDst = 2'b10; // PC+4
                 ExtSel = 3'b100; // J型
                 Sign = 1;       // 符号扩展
+                RegWr = 1;
             end
 
             // JALR指令
@@ -642,6 +641,7 @@ module ControlUnit(
                 ExtSel = 3'b000; // I型
                 Sign = 1;       // 符号扩展
                 AluOp = 3'b000; // ADD（计算目标地址）
+                RegWr = 1;
             end
 
             // 其他指令（默认处理）
