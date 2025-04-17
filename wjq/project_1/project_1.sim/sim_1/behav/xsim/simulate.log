@@ -1,0 +1,15 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+
+=== 寄存器验证 ===
+错误: x1 = 0x00000000 (期望值0x00000005)
+错误: x2 = 0x00000000 (期望值0x00000003)
+错误: x3 = 0xxxxxxxxx (期望值0x00000008)
+错误: x4 = 0x00000000 (期望值0x00000008)
+错误: x5 = 0xxxxxxxxx (期望值0x00000001)
+
+=== 存储器验证 ===
+错误: MEM[0x00000000] = 0xxxxxxxxx (期望值0x00000008)
+
+=== 测试完成 ===
+$finish called at time : 512 ns : File "C:/Users/smart/Desktop/code/DeepSleep/wjq/project_1/project_1.srcs/sources_1/imports/wjq/RISCVCore_tb.sv" Line 43

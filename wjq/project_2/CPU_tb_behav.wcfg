@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="CPU_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="CPU_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="8333333fs"></ZoomStartTime>
+      <ZoomEndTime time="149533334fs"></ZoomEndTime>
+      <Cursor1Time time="126000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="316"></NameColumnWidth>
+      <ValueColumnWidth column_width="369"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="20" />
+   <wvobject fp_name="/CPU_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/global_en" type="logic">
+      <obj_property name="ElementShortName">global_en</obj_property>
+      <obj_property name="ObjectShortName">global_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/debug_reg_ra" type="logic">
+      <obj_property name="ElementShortName">debug_reg_ra</obj_property>
+      <obj_property name="ObjectShortName">debug_reg_ra</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/debug_reg_rd" type="logic">
+      <obj_property name="ElementShortName">debug_reg_rd</obj_property>
+      <obj_property name="ObjectShortName">debug_reg_rd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_decoder/inst" type="array">
+      <obj_property name="ElementShortName">inst[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_decoder/alu_src0_sel_reg" type="array">
+      <obj_property name="ElementShortName">alu_src0_sel_reg[0:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src0_sel_reg[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_decoder/alu_src1_sel_reg" type="array">
+      <obj_property name="ElementShortName">alu_src1_sel_reg[0:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src1_sel_reg[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_alu/alu_src0" type="array">
+      <obj_property name="ElementShortName">alu_src0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src0[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_alu/alu_src1" type="array">
+      <obj_property name="ElementShortName">alu_src1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_alu/alu_op" type="array">
+      <obj_property name="ElementShortName">alu_op[4:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_op[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_alu/alu_res" type="array">
+      <obj_property name="ElementShortName">alu_res[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_res[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_reg/rf_wd" type="array">
+      <obj_property name="ElementShortName">rf_wd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rf_wd[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_reg/rf_we" type="array">
+      <obj_property name="ElementShortName">rf_we[0:0]</obj_property>
+      <obj_property name="ObjectShortName">rf_we[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_reg/rf_wa" type="array">
+      <obj_property name="ElementShortName">rf_wa[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rf_wa[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_reg/reg_file[0]" type="array">
+      <obj_property name="ElementShortName">[0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_reg/reg_file[1]" type="array">
+      <obj_property name="ElementShortName">[1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_reg/reg_file[2]" type="array">
+      <obj_property name="ElementShortName">[2][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_reg/debug_reg_ra" type="array">
+      <obj_property name="ElementShortName">debug_reg_ra[4:0]</obj_property>
+      <obj_property name="ObjectShortName">debug_reg_ra[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_tb/uut/my_reg/debug_reg_rd" type="array">
+      <obj_property name="ElementShortName">debug_reg_rd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">debug_reg_rd[31:0]</obj_property>
+   </wvobject>
+</wave_config>

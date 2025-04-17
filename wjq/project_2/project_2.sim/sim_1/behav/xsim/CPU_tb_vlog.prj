@@ -1,0 +1,26 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/ALU.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/BRANCH.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/CPU.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/DECODER.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/EX_MEM.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/FORWARDING.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/ID_EX.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/IF_ID.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/MEM_WB.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/MUX.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/MUX2.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/NPCMUX.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/PC.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/PCADDER.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/REGFILES.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/SEG_CTRL.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/CPU/SL_UNIT.v" \
+"../../../../project_2.srcs/sources_1/new/CPU_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

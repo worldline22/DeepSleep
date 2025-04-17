@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/PDU/RTL/BP_LIST_REG.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/PDU/UTILS/HEX2ASCII.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/PDU/UTILS/HEX2UART.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/PDU/RTL/INFO_SENDER.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/PDU/RTL/PDU_decode.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/PDU/UTILS/POSEDGE_GEN.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/PDU/UTILS/QUEUE.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/PDU/UART/UART_RX.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/PDU/UART/UART_TX.v" \
+"../../../../project_2.srcs/sources_1/imports/Pipeline-CPU-main/PDU/PDU.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
