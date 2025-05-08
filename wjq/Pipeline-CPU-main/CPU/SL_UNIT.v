@@ -7,7 +7,8 @@ module SLU (
 
     output      reg         [31 : 0]                rd_out,
     output      reg         [31 : 0]                wd_out,
-    output      reg         [0:0]                   wd_we
+    output      reg         [0:0]                   wd_we,
+    output      reg         [1:0]                   mask
 );
 
 `define LW      4'B0000
@@ -18,6 +19,20 @@ module SLU (
 `define SW      4'B1000
 `define SH      4'B1001
 `define SB      4'B1011
+
+always@(*) begin
+    case(dmem_access)
+        `LW: mask = 2'b10;
+        `LH: mask = 2'b01;
+        `LB: mask = 2'b00;
+        `LHU: mask = 2'b01;
+        `LBU: mask = 2'b00;
+        `SW: mask = 2'b10;
+        `SH: mask = 2'b01;
+        `SB: mask = 2'b00;
+    endcase
+end
+
 
 always @(*) begin
     case (dmem_access)

@@ -1,0 +1,12 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+[COMMIT] PC: 00400000, INST: 00400093
+[COMMIT] PC: 00400004, INST: 00400093
+[COMMIT] PC: 00400008, INST: 00800113
+x1 =          4 (Expected: 4)
+[COMMIT] PC: 0040000c, INST: 01000193
+[COMMIT] PC: 00400010, INST: 00312023
+[COMMIT] PC: 00400014, INST: 401102b3
+[COMMIT] PC: 00400018, INST: 00009863
+x2 =          8 (Expected: 10)
+$finish called at time : 126 ns : File "C:/Users/smart/Desktop/code/DeepSleep/wjq/project_2/project_2.srcs/sources_1/new/CPU_tb.v" Line 85
